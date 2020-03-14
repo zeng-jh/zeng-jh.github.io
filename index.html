@@ -334,49 +334,19 @@
       
         
           
-            <h4 id="概率论基础"><a href="#概率论基础" class="headerlink" title="概率论基础"></a>概率论基础</h4><h5 id="落实基本概念"><a href="#落实基本概念" class="headerlink" title="落实基本概念"></a>落实基本概念</h5><p>Joint probability：同时讨论多个随机变量取值的概率。</p>
-<p>Marginal probability：在多件事情发生的情况下，只讨论单独一个随机变量的概率。</p>
-<p>Conditional probability：确定某个变量的情况下，其他随机变量取值的概率。</p>
-<h5 id="基本概率等式"><a href="#基本概率等式" class="headerlink" title="基本概率等式"></a>基本概率等式</h5><script type="math/tex; mode=display">
-p(X) = \sum_Yp(X,Y)\\
-p(X,Y) = p(Y|X)p(X)</script><h5 id="Bayes’-theorem"><a href="#Bayes’-theorem" class="headerlink" title="Bayes’ theorem"></a>Bayes’ theorem</h5><script type="math/tex; mode=display">
-p(Y|X) = \frac{p(X|Y)p(Y)}{p(X)}</script><h5 id="先验概率与后验概率"><a href="#先验概率与后验概率" class="headerlink" title="先验概率与后验概率"></a>先验概率与后验概率</h5><p>Prior probability：对状态并未做任何观测，能够得到的概率。</p>
-<p>Posterior probability：对某些随机变量进行观测后，能够得到的概率。</p>
-<p>对同一个随机变量的观测概率会随着已观测的随机变量进行变化。</p>
-<h6 id="Independent：如果对一个随机变量的观测概率不随着另一个随机变量的观测而改变。"><a href="#Independent：如果对一个随机变量的观测概率不随着另一个随机变量的观测而改变。" class="headerlink" title="Independent：如果对一个随机变量的观测概率不随着另一个随机变量的观测而改变。"></a>Independent：如果对一个随机变量的观测概率不随着另一个随机变量的观测而改变。</h6><h5 id="概率密度"><a href="#概率密度" class="headerlink" title="概率密度"></a>概率密度</h5><p>Probability density：对实值随机变量的观测，当$\delta x\rightarrow 0$时，随机变量坐落于区间$(x,x+\delta x)$的概率由$p(x)\delta x$给出，即可在上定义。（用来描述连续分布）</p>
-<script type="math/tex; mode=display">
-p(x\in(a,b)) = \int_a^bp(x)dx</script><h6 id="变量代换-x-g-y"><a href="#变量代换-x-g-y" class="headerlink" title="变量代换$x = g(y)$"></a>变量代换$x = g(y)$</h6><script type="math/tex; mode=display">
-p_y(y) = p_x(g(y))|g'(y)|</script><p>依旧满足Bayes’ theorem</p>
-<script type="math/tex; mode=display">
-p(x) = \int p(x,y)dy\\
-p(x,y) = p(y|x)p(x)</script><h5 id="函数f在概率分布p-x-下的期望"><a href="#函数f在概率分布p-x-下的期望" class="headerlink" title="函数f在概率分布p(x)下的期望"></a>函数f在概率分布p(x)下的期望</h5><p>Discrete: $\mathbb{E}[f] = \sum_xp(x)f(x)$</p>
-<p>Continuous: $\mathbb{E}[f] = \int p(x)f(x)dx$</p>
-<p>当用样本来描述连续分布时，我们可以将期望近似</p>
-<script type="math/tex; mode=display">
-\mathbb{E}[f]\simeq\frac{1}{N}\sum_{n=1}^Nf(x_n)</script><p>边缘分布的期望$E_x[f]$</p>
-<p>条件分布的期望$E_x[f|y] = \sum\limits_x p(x|y)f(x)$</p>
-<h5 id="方差与协方差"><a href="#方差与协方差" class="headerlink" title="方差与协方差"></a>方差与协方差</h5><p>对于方差，计算公式为</p>
-<script type="math/tex; mode=display">
-\begin{align}
-{\rm var}[f] &= \mathbb{E}[(f(x)-\mathbb{E}[f(x)])^2]\\
-& = \mathbb{E}[f(x)^2]-\mathbb{E}[f(x)]^2
-\end{align}</script><p>方差只能描述一个随机变量的分布，若要描述两个随机变量分布之间的关系，需要采用协方差</p>
-<script type="math/tex; mode=display">
-{\rm cov}[x,y] = \mathbb{E}_{x,y}[xy]-\mathbb{E}[x]\mathbb{E}[y]</script><p>类似地，我们也可以定义协方差矩阵来描述两组随机序列之间的关系</p>
-<script type="math/tex; mode=display">
-{\rm cov}[{\bf x},{\bf y}] = \mathbb{E}_{x,y}[{\bf xy}^T]-\mathbb{E}[{\bf x}]\mathbb{E}[{\bf y}^T]</script><h5 id="Bayes概率"><a href="#Bayes概率" class="headerlink" title="Bayes概率"></a>Bayes概率</h5><p>重点：后验概率使用似然函数和先验概率共同评估。</p>
-<h5 id="Gauss分布"><a href="#Gauss分布" class="headerlink" title="Gauss分布"></a>Gauss分布</h5><h6 id="D维向量的高斯分布"><a href="#D维向量的高斯分布" class="headerlink" title="D维向量的高斯分布"></a>D维向量的高斯分布</h6><script type="math/tex; mode=display">
-\mathcal{N}({\bf x}|{\bf\mu},{\bf \Sigma}) = \frac{1}{(2\pi)^{D/2}}\frac{1}{|{\bf\Sigma}|^{1/2}}{\rm exp}
-\{-\frac{1}{2}({\bf x}-{\bf\mu})^T{\bf\Sigma}^{-1}({\bf x}-{\bf\mu})\}</script><h6 id="似然函数"><a href="#似然函数" class="headerlink" title="似然函数"></a>似然函数</h6><script type="math/tex; mode=display">
-p({\bf x}|\mu,\sigma^2) = \prod_{n=1}^N\mathcal{N}(x_n|\mu,\sigma^2)</script><p>根据一般套路，对似然函数取对数后，分别对$\mu$和$\sigma^2$求偏导，得到最大似然解</p>
-<p>观测样本$\mathcal{D} = \{x_1,x_2,…,x_N\}$</p>
-<script type="math/tex; mode=display">
-\mu_{\rm ML} = \frac{1}{N}\sum_{n=1}^Nx_n\\
-\sigma^2_{\rm ML} = \frac{1}{N}\sum_{n=1}^N(x_n-\mu_{\rm ML})^2</script><p>为了正确估计$\mu$和$\sigma^2$，我们在求出最大似然解的基础上，对$\sigma_{\rm ML}^2$进行偏置处理</p>
-<script type="math/tex; mode=display">
-\widetilde\sigma^2 = \frac{N}{N-1}\sigma^2_{\rm ML}</script><p>这样子，就返回了参数$\mu$和$\sigma^2$的估计值。当然，当$N$比较大时，最大似然解的偏置可忽略不计。</p>
+          概率论基础落实基本概念Joint probability：同时讨论多个随机变量取值的概率。
+Marginal probability：在多件事情发生的情况下，只讨论单独一个随机变量的概率。
+Conditional probability：确定某个变量的情况下，其他随机变量取值的概率。
+基本概率等式
 
-          
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/14/test-article/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -494,17 +464,15 @@ p({\bf x}|\mu,\sigma^2) = \prod_{n=1}^N\mathcal{N}(x_n|\mu,\sigma^2)</script><p>
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/14/hello-world/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
